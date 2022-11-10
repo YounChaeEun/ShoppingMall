@@ -10,7 +10,7 @@ function MainPageCategory() {
     { name: "Bottom", img: "bottom1.jpg" },
     { name: "Dress", img: "dress1.jpg" },
   ]);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -18,7 +18,7 @@ function MainPageCategory() {
       <Row>
         {category.map(function (a, i) {
           return (
-            <Col key={i}>
+            <Col key={a.id}>
               <img
                 src={category[i].img}
                 width="300px"

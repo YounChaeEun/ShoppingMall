@@ -1,40 +1,44 @@
 import { Container, Col, Row } from "react-bootstrap";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changeCart } from "./../store.js";
+import { addCart, increaseCount } from "./../store.js";
 
 function CoatPage(props) {
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
-  let a = useSelector((state) => state.coatItems);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const coatItems = useSelector((state) => state.coatItems);
+  const cartList = useSelector((state) => state.cartList);
 
   return (
     <div>
       <Container>
         <h4 className="title">Coat</h4>
         <Row>
-          {a.map(function (num, i) {
+          {coatItems.map(function (a, i) {
             return (
-              <Col key={i}>
+              <Col key={a.id}>
                 <img
-                  src={a[i].img}
+                  src={coatItems[i].img}
                   width="300px"
                   onClick={() => {
                     navigate("/detail");
-                    props.changeId(i); //a[i].id도 가능
+                    props.changeId(i); //coatItems[i].id도 가능
                   }}
                 ></img>
-                <div className="subTitle">{a[i].name}</div>
-                <button
-                  style={{ marginBottom: "50px" }}
-                  onClick={() => {
-                    props.changeId(i);
-                    dispatch(changeCart(a[props.id]));
-                    navigate("/cart");
-                  }}
-                >
-                  cart
-                </button>
+                <div className="subTitle">
+                  <div>{coatItems[i].name}</div>
+                  <button
+                    className="cartButton"
+                    onClick={() => {
+                      let d = coatItems.find((element) => element.id == i);
+                      let f = cartList.find((element) => element.id == d.id);
+                      dispatch(increaseCount(f));
+                      navigate("/cart");
+                    }}
+                  >
+                    cart
+                  </button>
+                </div>
               </Col>
             );
           })}

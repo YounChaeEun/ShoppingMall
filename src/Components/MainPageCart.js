@@ -2,18 +2,20 @@ import { Container, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 function MainPageCart() {
-  let a = useSelector((state) => state.cartList);
+  const cartList = useSelector((state) => state.cartList);
 
   return (
     <Container>
       <h4 className="title">Cart</h4>
       <Row>
-        {a.map(function (num, i) {
+        {cartList.map(function (a, i) {
           return (
-            <Col key={i}>
-              <img src={a[i].img} width="300px"></img>
-              <div className="subTitle">{a[i].name}</div>
-              <div>{a[i].price}</div>
+            <Col key={a.id}>
+              <img src={cartList[i].img} width="300px"></img>
+              <div className="subTitle">
+                <div>{cartList[i].name}</div>
+                <div>{cartList[i].price}</div>
+              </div>
             </Col>
           );
         })}

@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { addReview } from "./../store.js";
+import { addReview, removeReview } from "./../store.js";
+import { FaRegWindowClose, FaPlus } from "react-icons/fa";
 
 function ReviewPage() {
   let [value, setValue] = useState("");
-  let dispatch = useDispatch();
-  let a = useSelector((state) => state.reviewList);
+  const dispatch = useDispatch();
+  const reviewList = useSelector((state) => state.reviewList);
 
   return (
     <div>
@@ -13,32 +14,40 @@ function ReviewPage() {
         <h4>Review</h4>
       </div>
       <div>
-        {a &&
-          a.map(function (c, i) {
-            return (
-              <div className="list" key={i}>
-                {a[i]}
-              </div>
-            );
-          })}
+        {reviewList.map(function (a, i) {
+          return (
+            <div className="list" key={a.id}>
+              {reviewList[i]}
+              <button
+                className="removeButton"
+                onClick={() => {
+                  dispatch(removeReview(i));
+                }}
+              >
+                <FaRegWindowClose />
+              </button>
+            </div>
+          );
+        })}
       </div>
-      <input
-        type="text"
-        placeholder=""
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        value={value}
-      ></input>
-      <button
-        className="button"
-        onClick={() => {
-          dispatch(addReview(value));
-          setValue("");
-        }}
-      >
-        Write
-      </button>
+      <div className="ReviewPageBottom">
+        <textarea
+          placeholder=""
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+          value={value}
+        ></textarea>
+        <button
+          className="writeButton"
+          onClick={() => {
+            dispatch(addReview(value));
+            setValue("");
+          }}
+        >
+          <FaPlus />
+        </button>
+      </div>
     </div>
   );
 }

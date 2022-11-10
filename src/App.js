@@ -22,6 +22,8 @@ function App() {
     setId(a);
   };
 
+  const Remove = () => {};
+
   return (
     <div>
       <Navbar bg="light" expand="lg" style={{ fontSize: "20px" }}>
