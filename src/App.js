@@ -28,18 +28,12 @@ function App() {
     <div>
       <Navbar bg="light" expand="lg" style={{ fontSize: "20px" }}>
         <Container>
-          <Navbar.Brand href="#home" onClick={() => navigate("/")}>
-            Shop
-          </Navbar.Brand>
+          <Navbar.Brand onClick={() => navigate("/")}>Shop</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home" onClick={() => navigate("/")}>
-                Home
-              </Nav.Link>
-              <Nav.Link href="#link" onClick={() => navigate("/cart")}>
-                Cart
-              </Nav.Link>
+              <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
+              <Nav.Link onClick={() => navigate("/cart")}>Cart</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item>About</NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -67,7 +61,10 @@ function App() {
               <Container>
                 <Row className="nothingWrap">
                   <Col className="nothingText">Spring LookBook</Col>
-                  <img className="nothingImg" src="nothing.png"></img>
+                  <img
+                    className="nothingImg"
+                    src="https://younchaeeun.github.io/ShoppingMall/images/nothing.png"
+                  ></img>
                 </Row>
               </Container>
               <MainPageCart />

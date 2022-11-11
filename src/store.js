@@ -3,10 +3,34 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 let coatItems = createSlice({
   name: "coatItems",
   initialState: [
-    { id: 0, name: "A coat", img: "coat1.jpg", price: "100,000", count: 1 },
-    { id: 1, name: "B coat", img: "coat2.jpg", price: "200,000", count: 1 },
-    { id: 2, name: "C coat", img: "coat3.jpg", price: "300,000", count: 1 },
-    { id: 3, name: "D coat", img: "coat4.jpg", price: "400,000", count: 1 },
+    {
+      id: 0,
+      name: "A coat",
+      img: "https://younchaeeun.github.io/ShoppingMall/images/coat1.jpg",
+      price: "100,000",
+      count: 1,
+    },
+    {
+      id: 1,
+      name: "B coat",
+      img: "https://younchaeeun.github.io/ShoppingMall/images/coat2.jpg",
+      price: "200,000",
+      count: 1,
+    },
+    {
+      id: 2,
+      name: "C coat",
+      img: "https://younchaeeun.github.io/ShoppingMall/images/coat3.jpg",
+      price: "300,000",
+      count: 1,
+    },
+    {
+      id: 3,
+      name: "D coat",
+      img: "https://younchaeeun.github.io/ShoppingMall/images/coat4.jpg",
+      price: "400,000",
+      count: 1,
+    },
   ],
 });
 
@@ -30,10 +54,34 @@ let reviewList = createSlice({
 let cartList = createSlice({
   name: "cartList",
   initialState: [
-    { id: 0, name: "A coat", img: "coat1.jpg", price: "100,000", count: 1 },
-    { id: 3, name: "D coat", img: "coat4.jpg", price: "400,000", count: 1 },
-    { id: 2, name: "C coat", img: "coat3.jpg", price: "300,000", count: 1 },
-    { id: 1, name: "B coat", img: "coat2.jpg", price: "200,000", count: 1 },
+    {
+      id: 0,
+      name: "A coat",
+      img: "https://younchaeeun.github.io/ShoppingMall/images/coat1.jpg",
+      price: "100,000",
+      count: 1,
+    },
+    {
+      id: 3,
+      name: "D coat",
+      img: "https://younchaeeun.github.io/ShoppingMall/images/coat4.jpg",
+      price: "400,000",
+      count: 1,
+    },
+    {
+      id: 2,
+      name: "C coat",
+      img: "https://younchaeeun.github.io/ShoppingMall/images/coat3.jpg",
+      price: "300,000",
+      count: 1,
+    },
+    {
+      id: 1,
+      name: "B coat",
+      img: "https://younchaeeun.github.io/ShoppingMall/images/coat2.jpg",
+      price: "200,000",
+      count: 1,
+    },
   ],
   reducers: {
     addCart(state, action) {

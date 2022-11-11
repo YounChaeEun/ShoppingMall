@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 .bg {
-  background-image: url(./../public/background.jpg);
+  background-image: url(" https://younchaeeun.github.io/ShoppingMall/images/background.jpg");
   background-size: cover;
   width: 100%;
   height: 750px;
